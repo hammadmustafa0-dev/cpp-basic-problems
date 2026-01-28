@@ -11,13 +11,10 @@ int main(){
     int col,row,arr[20][20];
 
                 
-
-    cout<<"enter the number of rows and coloumns: ";
-    cin>>row>>col;
-    if(row!=col){
-        cout<<"rows and coloumns are not equal!";
-        return 0;
-    }
+    cout<<"enter the number of rows: ";
+    cin>>row;
+    cout<<"enter number of coloumns: ";
+    cin>>col;
 
 
     int srow=0,erow=row-1,scolumn=0,ecolumn=col-1;                  //srow ---> starting row , erow ----> ending row
@@ -42,9 +39,10 @@ int main(){
 
     cout<<"\n";
 
+    cout<<"output in spiral way: "<<endl;
+    cout<<"\n";
 
-
-    while(srow<erow){
+    while(srow<=erow && scolumn<=ecolumn){
 
 
         for(int i=scolumn;i<=ecolumn;i++){
@@ -55,12 +53,21 @@ int main(){
             cout<<arr[j][ecolumn]<<" ";
         }
 
-        for(int k=ecolumn-1;k>=scolumn;k--){
+
+        if(srow<erow){
+
+            for(int k=ecolumn-1;k>=scolumn;k--){
             cout<<arr[erow][k]<<" ";
+            }
+
         }
 
-        for(int l=erow-1;l>=srow+1;l--){
+        if(scolumn<ecolumn){
+
+            for(int l=erow-1;l>=srow+1;l--){
             cout<<arr[l][scolumn]<<" ";
+            }
+
         }
 
         srow++; erow--; scolumn++;ecolumn--;
